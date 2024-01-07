@@ -4,7 +4,8 @@
     @include('includes.head')
 		
     </head>
-    <body>
+    
+    <body class="sub_page">
 			
     @include('includes.header')
 	

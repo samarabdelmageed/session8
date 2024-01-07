@@ -36,3 +36,7 @@ Route::get('guards',function(){
 Route::get('services',function(){
     return view('services');
 })->name('services');
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
