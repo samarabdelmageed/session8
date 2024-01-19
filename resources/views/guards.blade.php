@@ -1,4 +1,4 @@
-@extends('layouts.pages')
+@extends('layouts.pages', ["title"=>"Guards"])
 @section('content')
 @include('includes.team')
 @endsection

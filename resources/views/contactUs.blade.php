@@ -1,4 +1,4 @@
-@extends('layouts.pages')
+@extends('layouts.pages', [$title=__('messages.title')])
 @section('content')
 @include('includes.contact')
 @endsection

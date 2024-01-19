@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 
-@include('includes.head')
+@extends('includes.head', [$title="Home"])
 
 <body>
   <div class="hero_area">

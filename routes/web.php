@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,6 @@ Route::get('about',function(){
     return view('about');
 })->name('about');
 
-Route::get('contactUs',function(){
-    return view('contactUs');
-})->name('contactUs');
 
 Route::get('guards',function(){
     return view('guards');
@@ -40,3 +38,13 @@ Route::get('services',function(){
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
+Route::post('sendMail', [Controller::class, 'sendMail'])->name('sendMail');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('contactUs', [Controller::class, 'contactUs'])->name('contactUs');
+
+    });
+
